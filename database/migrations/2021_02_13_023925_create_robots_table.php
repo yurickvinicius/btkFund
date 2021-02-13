@@ -15,7 +15,7 @@ class CreateRobotsTable extends Migration
     {
         Schema::create('robots', function (Blueprint $table) {
             $table->id();
-            $table->integer('magicNumber');
+            $table->integer('magic_number');
             $table->string('paper',60);
             $table->timestamps();
         });
