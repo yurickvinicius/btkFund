@@ -18,8 +18,8 @@ class UsersTableSeeder extends Seeder
             'email'    => "admin@gmail.com",
             'cpf'       => "001.555.777.01",
             'password'    => Hash::make(123456),
-            'accountNumber'=> 100000,
-            'inUse'     => 1,
+            'account_number'=> 100000,
+            'in_use'     => 1,
             'remember_token' => Str::random(10),
         ]);       
 

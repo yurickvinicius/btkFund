@@ -19,8 +19,8 @@ class CreateUsersTable extends Migration
             $table->text('cpf',14);
             $table->string('password');
             $table->string('email')->unique()->nullable();
-            $table->integer('accountNumber');
-            $table->char('inUse',1)->default(1);
+            $table->integer('account_number');
+            $table->char('in_use',1)->default(1);
             $table->timestamp('email_verified_at')->nullable();            
             $table->rememberToken();
             $table->timestamps();
