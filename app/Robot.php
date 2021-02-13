@@ -10,4 +10,8 @@ class Robot extends Model
         'magicNumber',
         'paper'
     ];
+
+    public function users(){
+        return $this->belongsToMany('App\User');
+    }
 }

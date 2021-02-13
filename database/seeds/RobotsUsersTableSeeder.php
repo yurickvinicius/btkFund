@@ -11,7 +11,7 @@ class RobotsUsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('robots_users')->truncate();
+        DB::table('robot_user')->truncate();
         
         factory('App\RobotUser', 100)->create();
     }

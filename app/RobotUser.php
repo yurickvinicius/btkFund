@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class RobotUser extends Model
 {
 
-    protected $table = 'robots_users';
+    protected $table = 'robot_user';
 
     protected $fillable = [
         'user_id', 'robot_id',
