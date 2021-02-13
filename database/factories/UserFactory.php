@@ -28,5 +28,6 @@ $factory->define(User::class, function (Faker $faker) {
         'account_number'=> $faker->unique()->numberBetween(100000,900000),
         'in_use'=> $faker->numberBetween(0,1),
         'remember_token' => Str::random(10),
+        'type_id' => 2
     ];
 });

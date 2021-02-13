@@ -21,6 +21,7 @@ class UsersTableSeeder extends Seeder
             'account_number'=> 100000,
             'in_use'     => 1,
             'remember_token' => Str::random(10),
+            'type_id' => 1,
         ]);       
 
 
