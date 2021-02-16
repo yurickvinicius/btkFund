@@ -9,4 +9,5 @@ class Balance extends Model
     protected $fillable = [
         'balance',
     ];
+    
 }

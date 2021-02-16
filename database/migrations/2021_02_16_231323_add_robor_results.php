@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserBalances extends Migration
+class AddRoborResults extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddUserBalances extends Migration
      */
     public function up()
     {
-        Schema::table('balances', function (Blueprint $table) {
-            $table->integer('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+        Schema::table('results', function (Blueprint $table) {
+            $table->integer('robot_id')->default(1);
+            $table->foreign('robot_id')->references('id')->on('robots');
         });
     }
 
@@ -26,8 +26,8 @@ class AddUserBalances extends Migration
      */
     public function down()
     {
-        Schema::table('balances', function (Blueprint $table) {
-            $table->removeColumn('user_id');
+        Schema::table('results', function (Blueprint $table) {
+            $table->removeColumn('robot_id');
         });
     }
 }

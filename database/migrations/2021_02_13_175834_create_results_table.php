@@ -15,8 +15,8 @@ class CreateResultsTable extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->id();
-            $table->string('operation_type',60);
-            $table->char('operation_volume',1000);
+            $table->char('operation_type',1);
+            $table->integer('operation_volume');
             $table->string('entry_price',60);
             $table->string('exit_price',60);
             $table->string('stop_loss',60);

@@ -14,8 +14,11 @@ class AddTypeUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('type_id')->unsigned()->default(1);
-            $table->foreign('type_id')->references('id')->on('type_users');
+            
+            $table->integer('type_id')->default(1);
+            $table->foreign('type_id')
+                ->references('id')
+                ->on('type_users');
         });
     }
 

@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(BalancesTableSeeder::class);
         $this->call(RobotsTableSeeder::class);
         $this->call(RobotsUsersTableSeeder::class);
+        $this->call(ResultsTableSeeder::class);
 
     }
 }
