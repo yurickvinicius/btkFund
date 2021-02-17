@@ -14,7 +14,7 @@
         "take_profit" : "5.310",
         "result_profit": "5.299",
         "date_hour": "2021-02-16 23:24:37",
-        "balance": "90"
+        "balance": "123"
       },
       {
         "cpf" : "033.225.237.11",
@@ -44,7 +44,7 @@
         "take_profit" : "5.310",
         "result_profit": "5.299",
         "date_hour": "2021-02-16 23:24:37",
-        "balance": "90"
+        "balance": "-37"
       },
       {
         "cpf" : "123.432.908.33",
@@ -59,7 +59,7 @@
         "take_profit" : "5.310",
         "result_profit": "5.299",
         "date_hour": "2021-02-16 23:24:37",
-        "balance": "90"
+        "balance": "92"
       }
 
     ]
