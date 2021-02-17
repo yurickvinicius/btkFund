@@ -11,8 +11,9 @@ use App\RobotUser;
 class UploadController extends Controller
 {
 
-    //private $logSuccess;
-    //private $logError;
+    private $logSuccess=[];
+    private $logError=[];
+    private $cpfsErrors=[];
     private $user;
     private $balance;
     private $robot;
@@ -38,19 +39,24 @@ class UploadController extends Controller
             $userId = $this->checkCpf($result->cpf);
             if($userId){   
                 
-                $this->balanceStore($result->balance, $userId);
-                $robotId = $this->robotStore($result->magic_number, $result->paper);
-                $this->robotUserStore($userId, $robotId);                                
+                $cpf = $result->cpf;
+                $this->balanceStore($result->balance, $userId, $cpf);
+                $robotId = $this->robotStore($result->magic_number, $result->paper, $cpf);
+                $this->robotUserStore($userId, $robotId, $cpf);                                            
 
-            
-
+            }else{
+                $this->cpfsErrors[] = $result->cpf;
             }
 
-        endforeach; 
+        endforeach;
+        
+        print_r($this->logSuccess);
+        print_r($this->logError);
+        print_r($this->cpfsErrors);
 
-    }
+    }    
 
-    public function robotUserStore($userId, $robotId){
+    public function robotUserStore($userId, $robotId, $cpf){
         $robotUser = [
             'user_id' => $userId,
             'robot_id' => $robotId
@@ -58,12 +64,12 @@ class UploadController extends Controller
 
         $store = $this->robotUser->create($robotUser);
         if($store){
-            echo 'Pivot RobotUser save with success! <br>';
+            $this->logSuccess[$cpf]['pivot'] = 'Pivot RobotUser save with success!';
         }else
-            echo 'Error Try save pivot RobertUser! <br>';
+            $this->logError[$cpf]['pivot'] = 'Error Try save pivot RobertUser! <br>';
     }
 
-    public function robotStore($magicNumber, $paper){
+    public function robotStore($magicNumber, $paper, $cpf){
         $robot = [
             'magic_number' => $magicNumber,
             'paper' => $paper
@@ -71,23 +77,23 @@ class UploadController extends Controller
 
         $result = $this->robot->create($robot);
         if($result){
-            echo 'Robot save wicth success! <br>';
+            $this->logSuccess[$cpf]['robot'] = 'Robot save wicth success!';
             return $result->id;
         }else{
-            echo 'Error try save robot <br>';
+            $this->logError[$cpf]['robot'] = 'Error try save robot <br>';
         }                    
     }
 
-    public function balanceStore($balance, $userId){
+    public function balanceStore($balance, $userId, $cpf){
         $balance = [
             'user_id' => $userId,
             'balance' => $balance
         ];
 
         if($this->balance->create($balance)){
-            echo 'Balance save wicth success! <br>';
+            $this->logSuccess[$cpf]['balance'] = 'Balance save wicth success!';
         }else{
-            echo 'Error try save balance <br>';
+            $this->logError[$cpf]['balance'] = 'Error try save balance <br>';
         }
     }
 
