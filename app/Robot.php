@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Robot extends Model
 {
     protected $fillable = [
-        'magicNumber',
+        'magic_number',
         'paper'
     ];
 
