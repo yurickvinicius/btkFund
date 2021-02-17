@@ -1,0 +1,66 @@
+{
+  "Results":
+    [
+      {
+        "cpf" : "021.155.277.31",
+        "accont_number" : "123456",
+        "email" : "fulano_1@gmail.com",
+        "magic_number" : "321321",
+        "paper" : "dolh21",
+        "operation_type" : "compra",
+        "entry_price" : "5.300",
+        "current_price" : "5.302",
+        "stop_loss" : "5.290",
+        "take_profit" : "5.310",
+        "result_profit": "5.299",
+        "date_hour": "2021-02-16 23:24:37",
+        "balance": "90"
+      },
+      {
+        "cpf" : "033.225.237.11",
+        "accont_number" : "123456",
+        "email" : "fulano_2@gmail.com",
+        "magic_number" : "321321",
+        "paper" : "dolh21",
+        "operation_type" : "compra",
+        "entry_price" : "5.300",
+        "current_price" : "5.302",
+        "stop_loss" : "5.290",
+        "take_profit" : "5.310",
+        "result_profit": "5.299",
+        "date_hour": "2021-02-16 23:24:37",
+        "balance": "90"
+      },
+      {
+        "cpf" : "176.821.717-82",
+        "accont_number" : "123456",
+        "email" : "fulano_3@gmail.com",
+        "magic_number" : "321321",
+        "paper" : "dolh21",
+        "operation_type" : "compra",
+        "entry_price" : "5.300",
+        "current_price" : "5.302",
+        "stop_loss" : "5.290",
+        "take_profit" : "5.310",
+        "result_profit": "5.299",
+        "date_hour": "2021-02-16 23:24:37",
+        "balance": "90"
+      },
+      {
+        "cpf" : "123.432.908.33",
+        "accont_number" : "123456",
+        "email" : "fulano_4@gmail.com",
+        "magic_number" : "321321",
+        "paper" : "dolh21",
+        "operation_type" : "compra",
+        "entry_price" : "5.300",
+        "current_price" : "5.302",
+        "stop_loss" : "5.290",
+        "take_profit" : "5.310",
+        "result_profit": "5.299",
+        "date_hour": "2021-02-16 23:24:37",
+        "balance": "90"
+      }
+
+    ]
+}
