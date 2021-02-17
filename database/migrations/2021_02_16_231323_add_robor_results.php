@@ -14,7 +14,7 @@ class AddRoborResults extends Migration
     public function up()
     {
         Schema::table('results', function (Blueprint $table) {
-            $table->integer('robot_id')->default(1);
+            $table->integer('robot_id');
             $table->foreign('robot_id')->references('id')->on('robots');
         });
     }

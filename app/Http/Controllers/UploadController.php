@@ -7,6 +7,7 @@ use App\User;
 use App\Balance;
 use App\Robot;
 use App\RobotUser;
+use App\Result;
 
 class UploadController extends Controller
 {
@@ -18,12 +19,14 @@ class UploadController extends Controller
     private $balance;
     private $robot;
     private $robotUser;
+    private $result;
 
-    public function __construct(User $userModel, Balance $balanceModel, Robot $robotModel, RobotUser $robotUserModel){
+    public function __construct(User $userModel, Balance $balanceModel, Robot $robotModel, RobotUser $robotUserModel, Result $resultModel){
         $this->user = $userModel;
         $this->balance = $balanceModel;
         $this->robot = $robotModel;
         $this->robotUser = $robotUserModel;
+        $this->result = $resultModel;
     }
 
 
@@ -40,9 +43,25 @@ class UploadController extends Controller
             if($userId){   
                 
                 $cpf = $result->cpf;
-                $this->balanceStore($result->balance, $userId, $cpf);
-                $robotId = $this->robotStore($result->magic_number, $result->paper, $cpf);
-                $this->robotUserStore($userId, $robotId, $cpf);                                            
+                $magicNumber = $result->magic_number;
+                $paper = $result->paper;
+                $balance = $result->balance;
+                $operationType = $result->operation_type;
+                $operationVolume = $result->operation_volume;
+                $entryPrice = $result->entry_price;
+                $exitPrice = $result->exit_price;
+                $stopLoss = $result->stop_loss;
+                $takeProfit = $result->take_profit;
+                $resultProfit = $result->result_profit;
+                $currentPrice = $result->current_profit;
+                $dateHour = $result->date_hour;
+
+
+                $this->balanceStore($balance, $userId, $cpf);
+                $robotId = $this->robotStore($magicNumber, $paper, $cpf);
+                $this->robotUserStore($userId, $robotId, $cpf);                                 
+                
+                $this->resultStore($operationType, $operationVolume, $entryPrice, $exitPrice, $stopLoss, $takeProfit, $resultProfit, $currentPrice, $dateHour, $robotId, $cpf);
 
             }else{
                 $this->cpfsErrors[] = $result->cpf;
@@ -54,7 +73,29 @@ class UploadController extends Controller
         print_r($this->logError);
         print_r($this->cpfsErrors);
 
-    }    
+    }
+    
+    public function resultStore($operationType, $operationVolume, $entryPrice, $exitPrice, $stopLoss, $takeProfit, $resultProfit, $currentPrice, $dateHour, $robotId, $cpf){
+        $result = [
+            'operation_type' => $operationType,
+            'operation_volume' => $operationVolume,
+            'entry_price' => $entryPrice,
+            'exit_price' => $exitPrice,
+            'stop_loss' => $stopLoss,
+            'take_profit' => $takeProfit,
+            'result_profit' => $resultProfit,
+            'current_profit' => $currentPrice,
+            'data_hour_operation' => $dateHour,
+            'robot_id' => $robotId,
+        ];
+
+        $store = $this->result->create($result);
+        if($store)
+            $this->logSuccess[$cpf]['result'] = 'Results save with success!';
+        else
+            $this->logError[$cpf]['result'] = 'Error try save results!';
+
+    }
 
     public function robotUserStore($userId, $robotId, $cpf){
         $robotUser = [

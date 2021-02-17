@@ -15,6 +15,7 @@ class Result extends Model
         'take_profit',
         'result_profit',
         'current_profit',
-        'data_hour_operation'
+        'data_hour_operation',
+        'robot_id'
     ];
 }
