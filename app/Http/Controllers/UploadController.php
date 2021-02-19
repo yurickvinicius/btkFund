@@ -73,6 +73,8 @@ class UploadController extends Controller
         print_r($this->logError);
         print_r($this->cpfsErrors);
 
+        ///// Futuro criar funcao para excluir arquivo json
+
     }
     
     public function resultStore($operationType, $operationVolume, $entryPrice, $exitPrice, $stopLoss, $takeProfit, $resultProfit, $currentPrice, $dateHour, $robotId, $cpf){
