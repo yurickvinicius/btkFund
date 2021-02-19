@@ -2,7 +2,7 @@
   "Results":
     [
       {
-        "cpf" : "021.155.277.31",
+        "cpf" : "021.155.277-31",
         "accont_number" : "123456",
         "email" : "maria_1@gmail.com",
         "magic_number" : "123456",
@@ -20,7 +20,7 @@
         "balance": "-30"
       },
       {
-        "cpf" : "033.225.237.11",
+        "cpf" : "033.225.237-11",
         "accont_number" : "098765",
         "email" : "fulano_2@gmail.com",
         "magic_number" : "321321",
