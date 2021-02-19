@@ -69,9 +69,15 @@ class UploadController extends Controller
 
         endforeach;
         
-        print_r($this->logSuccess);
-        print_r($this->logError);
-        print_r($this->cpfsErrors);
+        ///print_r($this->logSuccess);
+        ///print_r($this->logError);
+        ///print_r($this->cpfsErrors);
+
+        $logSuccess = $this->logSuccess;
+        $logErrors = $this->logError;
+        $logCpfsErrors = $this->cpfsErrors;
+        
+        return view('upload',compact('logSuccess', 'logErrors', 'logCpfsErrors'));
 
         ///// Futuro criar funcao para excluir arquivo json
 
